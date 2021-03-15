@@ -7,10 +7,10 @@
   <title>Add form</title>
 </head>
 <body>
-  <form action="/insults" method="POST">
-    <input type="text" name="text" placeholder="text">
-    <input type="text" name="origin" placeholder="origin">
-    <input type="number" min="1" max="10" name="severity" placeholder="severity">
+  <form action="<%= insult ? `/insults/${insult.id}` : '/insults' %>" method="POST">
+    <input type="text" name="text" placeholder="text" value="<%= insult ? insult.text : '' %>">
+    <input type="text" name="origin" placeholder="origin" value="<%= insult ? insult.origin : '' %>">
+    <input type="number" min="1" max="10" name="severity" placeholder="severity" value="<%= insult ? insult.severity : '' %>">
     <button>Sumbit</button>
 
   </form>
