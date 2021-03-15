@@ -65,7 +65,13 @@ app.get("/:severity", (req, res) => {
   let severity = +req.params.severity
   let filteredInsults = insults.filter(insult => insult.severity === severity)
   let random = Math.floor(Math.random() * filteredInsults.length)
-  res.render("random-insult", filteredInsults[random])
+  if (filteredInsults.length > 0) {
+    res.render("random-insult", filteredInsults[random])
+  }
+  else {
+    res.send(`No insults found with severity ${severity} `)
+  }
+  
 
 })
 

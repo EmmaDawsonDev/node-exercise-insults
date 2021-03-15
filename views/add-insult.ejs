@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add form</title>
+  <title><%= insult ? "Edit insult" : "Add new insult" %></title>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+  <main class="wrapper">
+  <h1><%= insult ? "Edit insult" : "Add new insult" %></h1>
   <form action="<%= insult ? `/insults/${insult.id}` : '/insults' %>" method="POST">
     <input type="text" name="text" placeholder="text" value="<%= insult ? insult.text : '' %>">
     <input type="text" name="origin" placeholder="origin" value="<%= insult ? insult.origin : '' %>">
@@ -14,5 +17,6 @@
     <button>Sumbit</button>
 
   </form>
+</main>
 </body>
 </html>
